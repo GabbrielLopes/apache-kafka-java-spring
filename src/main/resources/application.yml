@@ -1,0 +1,10 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: kakfa-api
+    # Kafka Configuration
+  kafka:
+    producer:
+      bootstrap-servers: localhost:29092
