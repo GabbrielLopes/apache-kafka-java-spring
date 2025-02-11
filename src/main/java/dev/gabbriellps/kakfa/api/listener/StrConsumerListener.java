@@ -1,5 +1,6 @@
 package dev.gabbriellps.kakfa.api.listener;
 
+import dev.gabbriellps.kakfa.api.custom.StrConsumerCustomListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.TopicPartition;
@@ -10,23 +11,17 @@ import org.springframework.stereotype.Component;
 public class StrConsumerListener {
 
 
-    @KafkaListener(groupId = "group-1",
-            topicPartitions = {
-                @TopicPartition(topic = "first-topic", partitions =  {"0"})
-            }, containerFactory = "strContainerFactory")
+    @StrConsumerCustomListener(groupId = "group-1")
     public void listener1(String message) {
         log.info("Listener 1 ::: group 1");
     }
 
-    @KafkaListener(groupId = "group-1",
-            topicPartitions = {
-            @TopicPartition(topic = "first-topic", partitions =  {"1"})
-    }, containerFactory = "strContainerFactory")
+    @StrConsumerCustomListener(groupId = "group-1")
     public void listener2(String message) {
         log.info("Listener 2 ::: group 1");
     }
 
-    @KafkaListener(groupId = "group-2", topics = "first-topic", containerFactory = "strContainerFactory")
+    @StrConsumerCustomListener(groupId = "group-2")
     public void listener3(String message) {
         log.info("Listener 3 ::: group 2");
     }
