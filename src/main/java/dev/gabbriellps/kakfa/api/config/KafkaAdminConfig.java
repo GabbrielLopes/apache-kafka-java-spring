@@ -1,5 +1,6 @@
 package dev.gabbriellps.kakfa.api.config;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
@@ -10,13 +11,10 @@ import org.springframework.kafka.core.KafkaAdmin;
 import java.util.HashMap;
 
 @Configuration
+@RequiredArgsConstructor
 public class KafkaAdminConfig {
 
     public final KafkaProperties properties;
-
-    public KafkaAdminConfig(KafkaProperties properties) {
-        this.properties = properties;
-    }
 
 
     @Bean
