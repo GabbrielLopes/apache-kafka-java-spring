@@ -10,8 +10,18 @@ public class StrConsumerListener {
 
 
     @KafkaListener(groupId = "group-1", topics = "first-topic", containerFactory = "strContainerFactory")
-    public void listener(String message) {
-        log.info("Received message {}", message);
+    public void listener1(String message) {
+        log.info("Listener 1 ::: group 1");
+    }
+
+    @KafkaListener(groupId = "group-1", topics = "first-topic", containerFactory = "strContainerFactory")
+    public void listener2(String message) {
+        log.info("Listener 2 ::: group 1");
+    }
+
+    @KafkaListener(groupId = "group-2", topics = "first-topic", containerFactory = "strContainerFactory")
+    public void listener3(String message) {
+        log.info("Listener 3 ::: group 2");
     }
 
 }
