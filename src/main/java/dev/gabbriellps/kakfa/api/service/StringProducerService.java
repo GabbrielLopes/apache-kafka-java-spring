@@ -15,10 +15,12 @@ public class StringProducerService {
     private final KafkaTemplate kafkaTemplate;
 
     public void sendMessage(String message) {
-        kafkaTemplate.send("first-topic", message).addCallback(
-                success -> log.info("Message sent succefully {}", message),
-                error -> log.error("Error send message")
-        );
+        kafkaTemplate.send("first-topic", message);
+        log.info("Message sent {}", message);
+//                .addCallback(
+//                success -> log.info("Message sent succefully {}", message),
+//                error -> log.error("Error send message")
+//        );
     }
 
 }
