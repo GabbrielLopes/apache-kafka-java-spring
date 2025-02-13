@@ -21,7 +21,7 @@ public class StrConsumerListener {
         log.info("Listener 2 ::: group 1");
     }
 
-    @StrConsumerCustomListener(groupId = "group-2")
+    @KafkaListener(groupId = "group-2", topics = "first-topic", containerFactory = "validateMessageContainerFactory")
     public void listener3(String message) {
         log.info("Listener 3 ::: group 2");
     }
